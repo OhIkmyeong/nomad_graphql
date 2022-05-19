@@ -1,0 +1,10 @@
+part 1 : 이론 
+    - GraphQL vs REST API
+    - 거꾸로 할겨... 그래프 먼저 경험해보고 / api를 설계할거임 
+
+part 2 : 실전
+
+
+걍 브라우저 깔려있고
+vsCode있고
+node.js 깔려있음 됨
