@@ -1,0 +1,7 @@
+#3.0 What is GraphQL? (03:56)
+
+뭐 배울 때 그게 왜 나왔는지 이해하면 좋아(rest api의 문제점이 뭐길래 graphQL이 나왔나)
+= 그 기술이 어떤 문제점을 해결하려고 나왔나 = 문제를 이해한다 = 기술의 존재 이유 (reason of being)
+
+https://graphql.org/
+GraphQL은 하나의 Specification임. (공홈가도 다운로드 같은거 없단 소리)

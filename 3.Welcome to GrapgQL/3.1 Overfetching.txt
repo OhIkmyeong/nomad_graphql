@@ -1,0 +1,4 @@
+Ask for what you need, get exactly that : 그렇다 Overfetching라는 문제점을 해결한다는 걸 알 수 있지요
+
+Overfetching : 내가 데이터를 쓰건 말건 너무 많은 데이터를 받는다는 뜻
+2:00
