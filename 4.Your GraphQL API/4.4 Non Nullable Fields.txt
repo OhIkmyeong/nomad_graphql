@@ -1,1 +1,54 @@
 #4.4 Non Nullable Fields (07:25)
+
+! 에 대해서 알아볼것임
+
+const typeDefs = gql`
+    type User{
+        id : ID!
+        username : String!
+
+    }
+    type Tweet{
+        id : ID!
+        text : String!
+        author : User!
+    }
+
+    type Query{
+        allTweets: [Tweet!]!
+        tweet(id:ID!) : Tweet!
+    }
+    
+    type Mutation{
+        postTweet(text:String!, userId:ID!) : Tweet!
+        deleteTweet(id:ID!) : Boolean!
+    }
+`;
+
+그럼 이제 null 이 아니라 에러가 뜨기 시작할거임
+
+tweet(id:ID!) : Tweet >> 여기서 Tweet은 nullable field임. Tweet이 될 수도 있고, null이 될 수도 있다는거임.
+Tweet | null 이런게 default라 걍 Tweet이라고 쓰는거지.
+반면 id:ID! 이렇게 했으니까 언제나 id를 요구한다는거고
+
+tweet(id:ID!) : Tweet! 일케하면 이제 에러메세지가 뜨겠지.
+
+만일 firstName을 반드시 지녀야 한다면 
+
+type User{
+    id : ID
+    username : String!
+    firstName : String!
+    lastName : String
+}
+
+가 되겠지
+
+{
+  allTweets{
+    id
+    text
+  }
+}
+
+에러메세지 : Cannot return null for non-nullable field Query.allTweets."

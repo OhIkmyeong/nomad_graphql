@@ -1,0 +1,8 @@
+#4.5 Recap (07:02)
+
+graphQL의 schema 정의 언어에 대해 복습
+다음부턴 js로 resolver ㄴ만들거야
+
+type Query{} 반드시 있어야 하고
+수정필요한고 있음
+type Mutation{} 넣어야하고
