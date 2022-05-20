@@ -1,0 +1,54 @@
+#4.0 Setup (05:21)
+Apollo server를 사용해서 해봅시다
+https://www.apollographql.com/docs/apollo-server/
+노드제이에스 서버 같은건데 graphql을 이해하는 서버라는 뜻임.
+
+graphQL 트위터 api같은걸 만들어보고싶은거.
+폴더명은 tweetql
+
+cd tweetql로 가서
+npm init -y
+
+그리고 apollo server와 graphQl을 설치하자
+npm i apollo-server graphql
+npm i nodemon -D
+
+touch server.js
+touch .gitignore
+인데 윈도우에선 touch 명령어 안되거든 ㅋ
+걍 만들어줘 
+
+그리고 [package.json]에서
+"test"를 "dev"로 바꿔주고
+
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+
+그리고 밖에 다음 추가
+"type":"module"
+
+그리고 [server.js]에서
+import {ApolloServer, gql} from "apollo-server";
+
+package.json에서 type:module 추가한 이유는
+server.js에서 import문법 쓰기 위함이었음 ㅇㅇ
+만일 type:module안했으면
+const {ApolloServer, gql} =  require("apollo-server");
+이렇게 했어야겠지.
+
+그리고 npm run dev 해서 돌아가는지 봅시다
+
+
+
+[server.js]
+import {ApolloServer, gql} from "apollo-server";
+
+const server = new ApolloServer({});
+
+server.listen().then(({url})=>{
+    console.log(`Running on ${url}`);
+});
+
+터미널에 에러 발생함 
+Error: Apollo Server requires either an existing schema, modules or typeDefs

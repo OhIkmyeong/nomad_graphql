@@ -1,4 +1,5 @@
 Ask for what you need, get exactly that : 그렇다 Overfetching라는 문제점을 해결한다는 걸 알 수 있지요
 
-Overfetching : 내가 데이터를 쓰건 말건 너무 많은 데이터를 받는다는 뜻
-2:00
+1) Overfetching : 내가 데이터를 쓰건 말건 너무 많은 데이터를 받는다는 뜻
+
+graphQL은 restAPI처럼 바로 주소를 받아오는게 아니라 "필요한 데이터"를 "요청" 하는거야.

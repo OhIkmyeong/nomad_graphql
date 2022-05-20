@@ -1,0 +1,55 @@
+#4.1 Query Type (08:50)
+
+npm run dev 했을때 다음과 같은 에러가 뜰거임.
+
+Error: Apollo Server requires either an existing schema, modules or typeDefs
+이 에러가 뜨는 이유는 graphQL이 data의 shape를 미리 알고 있어야 하기 때문
+
+
+[server.js]
+const typeDefs = gql``;
+const server = new ApolloServer({typeDefs});
+
+이번에도 에러 뜰거야.
+GraphQLError: Syntax Error: Unexpected <EOF>.
+
+그러면 안에 타입을 넣어줘야하는데
+여기서 type Query는 mandatory임. 필수로 필요하단 뜻이야.
+
+const typeDefs = gql`
+    type Query{
+        hello:String
+    }
+`;
+
+이건 restAPI에서 💥 GET /hello 와 같은거임
+
+그래프QL의 스타워즈 api보면
+schema{
+    query:Root
+}
+Root{
+    어쩌고저쩌고
+}
+일케해놨어 ㅋ alias(별칭)으로 지정한거지
+
+그래서 최종적으로
+[server.js]
+import {ApolloServer, gql} from "apollo-server";
+
+const typeDefs = gql`
+    type Query{
+        text: String
+        hello:String
+    }
+`;
+const server = new ApolloServer({typeDefs});
+
+server.listen().then(({url})=>{
+    console.log(`Running on ${url}`);
+});
+
+하면 성공적으로 돌아가는걸 확인 가능함 
+Running on http://localhost:4000/
+
+(nodemon 종료는 ctrl c)

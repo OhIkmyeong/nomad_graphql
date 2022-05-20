@@ -1,0 +1,57 @@
+#3.3 Try GraphQL (09:45)
+
+https://graphql.org/swapi-graphql/
+
+그래프큐엘에선
+allFilms(
+    after: String
+    first: Int
+    before: String
+    last: Int
+): FilmsConnection
+
+이게 rest API에선
+/api/v1/films
+이런 식의 url이 되었겠징.
+
+우측 상단의 <Docs 클릭하면 나오는 사이드 바에서 query:Root 에서 Root을 클릭해봐
+
+그리고 예를들어 allFilms에서 제공하는 data들을 알고 싶다면 FilmsConnection을 클릭해보셈
+
+{
+  allFilms {
+    totalCount
+  }
+}
+
+....
+{
+  allFilms {
+    totalCount
+    films{
+      title
+      releaseDate
+      director
+      characterConnection{
+        characters{
+          name
+          gender
+          birthYear
+        }
+      }
+    }
+  }
+  allStarships{
+    totalCount,
+    starships{
+      name
+      filmConnection{
+        films{
+          title
+        }
+      }
+    }
+  }
+}
+
+그래프큐엘로 만드는게 어렵지 요청하는건 이렇게 댄나 편하고 쉽다구~

@@ -1,0 +1,19 @@
+Ask for what you need, get exactly that : 그렇다 Overfetching라는 문제점을 해결한다는 걸 알 수 있지요
+
+1) Overfetching : 내가 데이터를 쓰건 말건 너무 많은 데이터를 받는다는 뜻
+graphQL은 restAPI처럼 바로 주소를 받아오는게 아니라 "필요한 데이터"를 "요청" 하는거야.
+
+2)Underfetching : 우리가 필요한 것 보다 덜 받는것.
+ 필요한 정보를 얻기 위해 restAPI라면 여러번 요청해야하지만
+그래프ql은 "Get many resources in a single request" 한번의 요청으로 여러 자료를 받아올 수 있는겨.
+
+https://www.themoviedb.org 의
+https://www.themoviedb.org/documentation/api 에서
+https://developers.themoviedb.org/
+https://developers.themoviedb.org/3/getting-started/introduction
+
+여긴 rest API인데 모든 restAPI는 언더페칭과 오버페칭 문제가 있어
+만일 내가 nowplaying인 (https://developers.themoviedb.org/3/movies/get-now-playing)걸 가져와서
+타이틀, 장르, 개요를 화면에 뿌려주려고 하는데, 일단 정보가 너무 많고 (overfetching)
+저 nowplaying에선 장르에 대해 아이디 값만 제공하고 있어서 (Underfetching)
+장르 api에 또 요청을 해야하거든 (https://developers.themoviedb.org/3/genres/get-movie-list)
