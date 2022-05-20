@@ -1,0 +1,60 @@
+#4.2 Scalar and Root Types (10:06)
+
+자체적인 스튜디오가 있긴 해요잉
+그 버튼 누르면 이동하는거임
+query your server 버튼을 눌러보아요
+
+그럼
+
+query ExampleQuery {
+  text
+  hello
+}
+
+라고 되어있을텐데
+ExampleQuery 버튼 눌러보면
+
+{
+  "data": {
+    "text": null,
+    "hello": null
+  }
+}
+에러가 뜨는게 아니라 저렇게 null로 뜸
+1) 왜 에러가 아니고 null이 뜨는거지?
+2) 어디서 null로 만들어서 주는거지?
+
+
+2:40
+스칼라 타입 : graphQL에 built-in(내장)되어있는 타입임.
+String Int Boolean ID
+
+const typeDefs = gql`
+    type Tweet{
+        id : ID
+        text : String
+    }
+    type Query{
+        allTweets: [Tweet]
+    }
+`;
+
+....
+
+
+const typeDefs = gql`
+    type User{
+        id : ID
+        username : String
+
+    }
+    type Tweet{
+        id : ID
+        text : String
+        author : User <<= 하나의 User를 갖는다
+    }
+    type Query{
+        allTweets: [Tweet] <<=여러개의 Tweet을 갖는다
+    }
+`;
+

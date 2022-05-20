@@ -1,0 +1,42 @@
+#4.3 Mutation Type (09:22)
+
+graphQL세상에서 query는
+restAPI의 세상에서 GET request를 만드는 것 과 같다.
+
+type Query{
+    allTweets: [Tweet]
+    tweet(id:ID) : Tweet
+}
+
+restAPI에선
+GET /api/v1/tweets
+GET /api/v1/tweet/:id
+이런거랑 같은겨
+
+Operation에서 확인해보려면
+{
+  allTweets {
+    text
+  }
+  tweet(id:"1"){
+    author{
+      username
+    }
+  }
+}
+
+Mutation은 이제 POST 그런거..
+
+사용자가 서버로부터 정보를 GET하게 하고싶은건 type Query{}에 넣고
+사용자가 서버에 정보를 POST하게 하고싶은건 type Mutation{}이 넣으라는 뜻
+
+
+Operation에서 query{}라고 안 하고 걍 {} 하는건
+default라서 그래
+근데 Mutation은 앞에 mutation 써줘야함
+
+mutation($userId: ID){
+  postTweet(text:"Hello World", userId: "1") {
+    text
+  }
+}
