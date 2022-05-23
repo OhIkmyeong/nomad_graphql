@@ -1,5 +1,12 @@
 import {ApolloServer, gql} from "apollo-server";
 
+/* fakeDB */
+const tweets = [
+    {id:"1",text:"hello"},
+    {id:"2",text:"world"},
+    {id:"3",text:"third one"},
+];//fakeDB
+
 const typeDefs = gql`
     type User{
         id : ID!
@@ -10,12 +17,13 @@ const typeDefs = gql`
     type Tweet{
         id : ID!
         text : String!
-        author : User!
+        author : User
     }
 
     type Query{
         allTweets: [Tweet!]!
         tweet(id:ID!) : Tweet
+        ping:String!
     }
     
     type Mutation{
@@ -23,7 +31,14 @@ const typeDefs = gql`
         deleteTweet(id:ID!) : Boolean
     }
 `;
-const server = new ApolloServer({typeDefs});
+
+const resolvers = {
+    Query : {
+        allTweets(){return tweets;}
+    }
+};
+
+const server = new ApolloServer({typeDefs, resolvers});
 
 server.listen().then(({url})=>{
     console.log(`Running on ${url}`);
