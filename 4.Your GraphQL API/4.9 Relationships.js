@@ -1,3 +1,7 @@
+// #4.9 Relationships (07:23)
+/* Users와 Tweets를 연결해봅시다 */
+
+//[server.js]
 import {ApolloServer, gql} from "apollo-server";
 
 /* fakeDB */
@@ -20,15 +24,8 @@ const typeDefs = gql`
         id : ID!
         firstName : String!
         lastName : String
-        """
-        fullName is the sum of firstName and lastName
-        """
         fullName : String
     }
-    
-    """
-    Tweet Object represents a resource for a Tweet.
-    """
     type Tweet{
         id : ID!
         text : String!
@@ -64,8 +61,7 @@ const resolvers = {
         postTweet(_,{text,userId}){
             const newTweet = {
                 id : tweets.length + 1,
-                text,
-                userId};
+                text};
             tweets.push(newTweet);
             return newTweet;
         },//postTweet
@@ -92,3 +88,57 @@ const server = new ApolloServer({typeDefs, resolvers});
 server.listen().then(({url})=>{
     console.log(`Running on ${url}`);
 });
+
+
+//[Operation]
+{
+    allTweets {
+      id
+      text
+      author{
+        id
+        fullName
+      }
+    }
+}
+
+//[Response]
+{
+    "data": {
+      "allTweets": [
+        {
+          "id": "1",
+          "text": "rescue you",
+          "author": {
+            "id": "2",
+            "fullName": "Luke Skywalker"
+          }
+        },
+        {
+          "id": "2",
+          "text": "this is the way",
+          "author": {
+            "id": "1",
+            "fullName": "Din Djarin"
+          }
+        },
+        {
+          "id": "3",
+          "text": "coalascent",
+          "author": {
+            "id": "3",
+            "fullName": "Moira O'Deorain"
+          }
+        },
+        {
+          "id": "4",
+          "text": "just do it",
+          "author": {
+            "id": "2",
+            "fullName": "Luke Skywalker"
+          }
+        }
+      ]
+    }
+}
+
