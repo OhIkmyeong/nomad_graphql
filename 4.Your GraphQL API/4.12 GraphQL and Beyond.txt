@@ -1,0 +1,21 @@
+#4.12 GraphQL and Beyond (03:18)
+
+이 강의 이후. GraphQL + ReactJS 를 더 공부하고 싶다면?
+-인스타그램 클론코딩 를 수강하시면 됩니다.
+-인스타그램 클론코딩 강의에서는...
+    -GraphQL Subscription 을 이용해서 프라이빗 메시지를 구현해보고.
+    -백엔드: Apollo Server, GraphQL, Prisma Studio, Prisma Migrate, Prisma Client
+    -프론트엔드: Apollo, React, React Hook Form, Styled Components, React Hooks
+    -백엔드 + 프론트엔드 + 앱 (ios & 안드로이드) = 걍 몽땅 다 배워버릴 수 있는 알짜배기 강의입니다!
+
+이 강의 이후. GraphQL + Typescript 를 더 공부하고 싶다면?
+-우버이츠 클론코딩 를 수강하시면 됩니다.
+-우버이츠 클론코딩 강의에서는...
+    -Typescript 로 GraphQL API 를 만들고, Schema 를 구현해보고.
+    -우버이츠의 프론트엔드. 백엔드. 결제까지 전체 클론코딩 합니다.
+    -E2E 테스팅. 데이터 시각화. 리얼타임 구글 맵 연동. 3개의 클라이언트까지! 몽땅 구현합니다.
+    -완료된 우버이츠의 ⭐️ 최종 데모 ⭐️ 를 살펴보세요.
+
+
+Query나 Mutation말고도 Subscription이라는 type이 있음
+너의 API에 바뀐 게 있을 때 리얼타임으로 업데이트를 받는거임.
